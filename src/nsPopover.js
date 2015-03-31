@@ -113,6 +113,8 @@
 
                 move($popover, placement_, align_, elmRect, $triangle);
 
+                elm.addClass('ns-popover-opened');
+
                 if (options.hideOnInsideClick) {
                   // Hide the popover without delay on the popover click events.
                   $popover.on('click', insideClickHandler);
@@ -153,6 +155,7 @@
                 $popover.off('click', insideClickHandler);
                 $document.off('click', outsideClickHandler);
                 elm.off('click', buttonClickHandler);
+                elm.removeClass('ns-popover-opened');
                 $popover.isOpen = false;
                 displayer_.cancel();
                 $popover.css('display', 'none');
